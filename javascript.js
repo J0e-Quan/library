@@ -8,8 +8,8 @@ function Book(title, author, pages, read) {
     this.id = crypto.randomUUID()
 }
 
-function addBook(title, author, pages, read) {
-    let book = new Book (title, author, pages, read)
+function addBook(title, author, pages, read,) {
+    let book = new Book (title, author, pages, read,)
     library.push(book) 
     displayBook()
 }
@@ -18,26 +18,33 @@ function displayBook() {
     let libraryGrid = document.querySelector(".library-grid")
     for (book of library) {
         let bookCard = document.createElement("div")
-        bookCard.classList.add("book", "card")
+        bookCard.classList.add("card")
+
         let bookTitle = document.createElement("h3")
         bookTitle.textContent = book.title
-        bookTitle.classList.add("book", "title")
         bookCard.appendChild(bookTitle)
+
         let bookAuthor = document.createElement("p")
         bookAuthor.textContent = "By: " + book.author
         bookCard.appendChild(bookAuthor)
+
         let bookPages = document.createElement("p")
         bookPages.textContent = book.pages + " pages"
         bookCard.appendChild(bookPages)
+
+        let bookReadGrid = document.createElement("div")
+        
         let bookRead = document.createElement("p")
         bookRead.textContent = "Has read: "
-        bookCard.appendChild(bookRead)
+        bookReadGrid.appendChild(bookRead)
+        
         let bookReadCheckbox = document.createElement("input")
         bookReadCheckbox.type="checkbox"
         if (book.read === true) {
             bookReadCheckbox.checked = true
         }
-        bookCard.appendChild(bookReadCheckbox)
+        bookReadGrid.appendChild(bookReadCheckbox)
+        bookCard.appendChild(bookReadGrid)
         libraryGrid.appendChild(bookCard)
     }
 }
