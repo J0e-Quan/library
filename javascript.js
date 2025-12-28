@@ -32,19 +32,20 @@ function displayBook() {
         bookPages.textContent = book.pages + " pages"
         bookCard.appendChild(bookPages)
 
-        let bookReadGrid = document.createElement("div")
+        let bookRead = document.createElement("div")
+        bookRead.classList.add("book-read")
         
-        let bookRead = document.createElement("p")
-        bookRead.textContent = "Has read: "
-        bookReadGrid.appendChild(bookRead)
+        let bookReadText = document.createElement("p")
+        bookReadText.textContent = "Has read: "
+        bookRead.appendChild(bookReadText)
         
         let bookReadCheckbox = document.createElement("input")
         bookReadCheckbox.type="checkbox"
         if (book.read === true) {
             bookReadCheckbox.checked = true
         }
-        bookReadGrid.appendChild(bookReadCheckbox)
-        bookCard.appendChild(bookReadGrid)
+        bookRead.appendChild(bookReadCheckbox)
+        bookCard.appendChild(bookRead)
         libraryGrid.appendChild(bookCard)
     }
 }
@@ -55,5 +56,7 @@ addBookBtn.addEventListener('click', () =>{
     let author = document.querySelector("#author")
     let pages = document.querySelector("#pages")
     let read = document.querySelector("#read")
-    addBook(title.value, author.value, pages.value, read.checked)
+    if (title.value !== "" && author.value !== "" && pages.value !== "" && read.value !== "") {
+        addBook(title.value, author.value, pages.value, read.checked)
+    }
 })
