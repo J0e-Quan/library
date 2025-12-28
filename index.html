@@ -11,6 +11,38 @@
     <title>Library</title>
 </head>
 <body>
-    
+    <div class="container">
+        <section class="sidebar">
+            <h1 class="heading">My Library</h1>
+            <div class="add-book">
+                <h2 class="add-book-title">Add a book</h2>
+                <p class="add-book-disclaimer">NOTE: All fields must be filled up before being submitted!</p>
+                <form action="" method="post">
+                    <div class="new-book-title">
+                        <label for="title">Book title:</label>
+                        <input type="text" id="title" placeholder="name of the book">
+                    </div>
+                    <div class="new-book-author">
+                        <label for="author">Book author:</label>
+                        <input type="text" id="author" placeholder="who wrote it?">
+                    </div>
+                    <div class="new-book-pages">
+                        <label for="pages">Number of pages:</label>
+                        <input type="number" id="pages" min="1" placeholder="enter any positive number">
+                    </div>
+                    <div class="new-book-read">
+                        <label for="read">Have you read the book?</label>
+                        <input type="checkbox" id="read">
+                    </div>                  
+                    <button type="button" class="new-book-submit">Add book</button>                                                      
+                </form>
+            </div>
+        </section>
+        <section class="content">
+            <div class="library-grid">
+
+            </div>
+        </section>
+    </div>
 </body>
 </html>

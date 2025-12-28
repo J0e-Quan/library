@@ -21,3 +21,90 @@
     font-style: normal;
     font-weight: 100 900;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.sidebar {
+    background-color: rgb(46, 137, 255);
+    box-shadow: 8px 0 8px rgba(67, 67, 67, 67);
+    padding: 16px;
+    color: white;
+    height: 100vh;
+}
+
+.heading {
+    font-size: 3.5rem;
+    margin-bottom: 5rem;
+}
+
+.add-book-title {
+    font-size: 2rem;
+}
+
+.add-book-disclaimer {
+    margin-bottom: 1rem;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 16px;
+    color: black;
+}
+
+form input {
+    appearance: none;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 16px;
+    border: 2px solid rgb(200, 200, 200);
+}
+
+.new-book-read {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 4fr 1fr;
+    margin-top: -32px;
+}
+
+input[type="checkbox"] {
+    appearance: auto;
+    height: 24px;
+    width: 24px;
+}
+
+.new-book-submit {
+    appearance: none;
+    margin-top: -32px;
+    border: none;
+    border-radius: 24px;
+    background-color: rgb(46, 137, 255);
+    color: white;
+    padding: 12px 0;
+    font-size: 1.5rem;
+}
+
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 24px;
+}
