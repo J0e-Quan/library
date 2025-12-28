@@ -34,6 +34,10 @@ function clearForm(title, author, pages, read, colour) {
     colour.checked = false
 }
 
+Book.prototype.toggleRead = function() {
+    book.read = !book.read
+}
+
 function displayBook() {
     let libraryGrid = document.querySelector(".library-grid")
 
@@ -56,7 +60,11 @@ function displayBook() {
         bookCard.appendChild(bookAuthor)
 
         let bookPages = document.createElement("p")
-        bookPages.textContent = book.pages + " pages"
+        if (book.pages === 1) {
+            bookPages.textContent = book.pages + "page"
+        } else {
+            bookPages.textContent = book.pages + " pages"
+        }
         bookCard.appendChild(bookPages)
 
         let bookRead = document.createElement("div")
@@ -71,12 +79,22 @@ function displayBook() {
         if (book.read === true) {
             bookReadCheckbox.checked = true
         }
+
         bookRead.appendChild(bookReadCheckbox)
         bookCard.appendChild(bookRead)
+
+        let bookDelete = document.createElement("button")
+        bookDelete.type = "button"
+        bookDelete.classList.add("delete")
+        bookDelete.dataset.id = book.id
+        bookDelete.textContent = "Delete book"
+        bookCard.appendChild(bookDelete)
+
         determineBookColour(book.colour)
         if (book.isWhiteText === true) {
             bookCard.classList.add("white-text")
         }
+
         libraryGrid.appendChild(bookCard)
     }
 }
@@ -93,3 +111,4 @@ addBookBtn.addEventListener('click', () =>{
     }
     clearForm(title, author, pages, read, colour)
 })
+

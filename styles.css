@@ -204,3 +204,16 @@ legend, fieldset {
 .author {
     font-size: 1.5rem;
 }
+
+.delete {
+    border: none;
+    padding: 8px 24px;
+    border-radius: 16px;
+    margin-top: 4px;
+    background-color: rgb(167, 167, 167);
+}
+
+.delete:hover {
+    background-color: red;
+    color: white;
+}
