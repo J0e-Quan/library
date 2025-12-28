@@ -10,6 +10,11 @@ function Book(title, author, pages, read, colour) {
     this.id = crypto.randomUUID()
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = !this.read
+    console.log(this.read)
+}
+
 function addBook(title, author, pages, read, colour) {
     let book = new Book (title, author, pages, read, colour)
     library.push(book) 
@@ -32,10 +37,6 @@ function clearForm(title, author, pages, read, colour) {
     pages.value = ""
     read.checked = false
     colour.checked = false
-}
-
-Book.prototype.toggleRead = function() {
-    book.read = !book.read
 }
 
 function displayBook() {
@@ -79,7 +80,7 @@ function displayBook() {
         if (book.read === true) {
             bookReadCheckbox.checked = true
         }
-
+        bookReadCheckbox.dataset.id = book.id
         bookRead.appendChild(bookReadCheckbox)
         bookCard.appendChild(bookRead)
 
@@ -115,8 +116,12 @@ addBookBtn.addEventListener('click', () =>{
 let contentArea = document.querySelector(".content")
 contentArea.addEventListener('click', (event) => {
     if (event.target.classList.contains("delete")) {
-        let idToRemove = event.target.dataset.id
-        library = library.filter(book => book.id !== idToRemove)
+        let targetId = event.target.dataset.id
+        library = library.filter(book => book.id !== targetId)
         displayBook()
+    } else if (event.target.type === "checkbox") {
+        let targetId = event.target.dataset.id
+        let targetBook = library.find(book => book.id === targetId)
+        targetBook.toggleRead()
     }
 })
