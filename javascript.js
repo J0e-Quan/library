@@ -112,3 +112,11 @@ addBookBtn.addEventListener('click', () =>{
     clearForm(title, author, pages, read, colour)
 })
 
+let contentArea = document.querySelector(".content")
+contentArea.addEventListener('click', (event) => {
+    if (event.target.classList.contains("delete")) {
+        let idToRemove = event.target.dataset.id
+        library = library.filter(book => book.id !== idToRemove)
+        displayBook()
+    }
+})
