@@ -31,21 +31,13 @@ function determineBookColour(colour) {
     }
 }
 
-function clearForm(title, author, pages, read, colour) {
-    title.value = ""
-    author.value = ""
-    pages.value = ""
-    read.checked = false
-    colour.checked = false
-}
-
 function updatePlaceholderText() {
     if (library.length === 0) {
         let EmptyLibrary = document.createElement("h1")
         EmptyLibrary.classList.add("empty-library")
         EmptyLibrary.textContent = "This looks quite empty...\nAdd a book to get started."
         contentArea.appendChild(EmptyLibrary)
-    } else if (library.length > 0) {
+    } else if (library.length > 0 && document.querySelector(".empty-library") !== null) {
         let EmptyLibrary = document.querySelector(".empty-library")
         EmptyLibrary.remove()
     }
@@ -111,7 +103,13 @@ function displayBook() {
         libraryGrid.appendChild(bookCard)
     }
     updatePlaceholderText()
+    console.log("clearing form")
+    let form = document.querySelector("form")
+    form.reset()
 }
+
+
+
 
 let contentArea = document.querySelector(".content")
 updatePlaceholderText() 
@@ -122,10 +120,11 @@ addBookBtn.addEventListener('click', () =>{
     let pages = document.querySelector("#pages")
     let read = document.querySelector("#read")
     let colour = document.querySelector("input[name=colour]:checked")
+    let form = document.querySelector("form")
     if (title.value !== "" && author.value !== "" && pages.value !== "" && read.value !== "" && colour.value !== "") {
         addBook(title.value, author.value, pages.value, read.checked, colour.value)
-        clearForm(title, author, pages, read, colour)
     }
+    form.reset()
 })
 
 contentArea.addEventListener('click', (event) => {
