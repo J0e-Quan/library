@@ -1,6 +1,8 @@
 # library
 Library project based on The Odin Project curriculum.
 
+Live demo link: https://j0e-quan.github.io/library/
+
 ## Technologies used:
  - HTML for basic page layout
  - CSS for styling elements and use of web fonts (Inter for headings, Outfit for body text)
