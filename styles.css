@@ -221,3 +221,9 @@ legend, fieldset {
     background-color: red;
     color: white;
 }
+
+.empty-library {
+    font-size: 4rem;
+    white-space: pre-line;
+    text-align: center;
+}

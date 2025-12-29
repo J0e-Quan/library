@@ -39,6 +39,18 @@ function clearForm(title, author, pages, read, colour) {
     colour.checked = false
 }
 
+function updatePlaceholderText() {
+    if (library.length === 0) {
+        let EmptyLibrary = document.createElement("h1")
+        EmptyLibrary.classList.add("empty-library")
+        EmptyLibrary.textContent = "This looks quite empty...\nAdd a book to get started."
+        contentArea.appendChild(EmptyLibrary)
+    } else if (library.length > 0) {
+        let EmptyLibrary = document.querySelector(".empty-library")
+        EmptyLibrary.remove()
+    }
+}
+
 function displayBook() {
     let libraryGrid = document.querySelector(".library-grid")
 
@@ -98,8 +110,11 @@ function displayBook() {
 
         libraryGrid.appendChild(bookCard)
     }
+    updatePlaceholderText()
 }
 
+let contentArea = document.querySelector(".content")
+updatePlaceholderText() 
 let addBookBtn = document.querySelector(".new-book-submit")
 addBookBtn.addEventListener('click', () =>{
     let title = document.querySelector("#title")
@@ -109,11 +124,10 @@ addBookBtn.addEventListener('click', () =>{
     let colour = document.querySelector("input[name=colour]:checked")
     if (title.value !== "" && author.value !== "" && pages.value !== "" && read.value !== "" && colour.value !== "") {
         addBook(title.value, author.value, pages.value, read.checked, colour.value)
+        clearForm(title, author, pages, read, colour)
     }
-    clearForm(title, author, pages, read, colour)
 })
 
-let contentArea = document.querySelector(".content")
 contentArea.addEventListener('click', (event) => {
     if (event.target.classList.contains("delete")) {
         let targetId = event.target.dataset.id
