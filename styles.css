@@ -15,10 +15,18 @@
 }
 
 @font-face {
-    font-family: 'Outfit';
-    src: url(./fonts/Outfit[wght].woff2),
+    font-family: 'Urbanist';
+    src: url(./fonts/Urbanist-VariableFont_wght.woff2),
     format('woff2-variations');
     font-style: normal;
+    font-weight: 100 900;
+}
+
+@font-face {
+    font-family: 'Urbanist';
+    src: url(./fonts/Urbanist-Italic-VariableFont_wght.woff2),
+    format('woff2-variations');
+    font-style: italic;
     font-weight: 100 900;
 }
 
@@ -26,7 +34,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', serif;
+    font-family: 'Urbanist', serif;
+    font-weight: 550;
 }
 
 h1, h2, h3, h4, h5, h6 {

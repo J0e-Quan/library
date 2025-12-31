@@ -5,7 +5,7 @@ Live demo link: https://j0e-quan.github.io/library/
 
 ## Technologies used:
  - HTML for basic page layout
- - CSS for styling elements and use of web fonts (Inter for headings, Outfit for body text)
+ - CSS for styling elements and use of web fonts (Inter for headings, Urbanist for body text)
  - CSS Grid and Flexbox for arranging elements
  - JavaScript for handling logic of adding books, editing read status and deleting books
  - Git for version control
