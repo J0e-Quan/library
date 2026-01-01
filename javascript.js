@@ -1,24 +1,25 @@
 let library = []
 
-function Book(title, author, pages, read, colour) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-    this.colour = colour
-    this.isWhiteText = false
-    this.id = crypto.randomUUID()
-}
-
-Book.prototype.toggleRead = function() {
-    this.read = !this.read
-    console.log(this.read)
-}
-
 function addBook(title, author, pages, read, colour) {
     let book = new Book (title, author, pages, read, colour)
     library.push(book) 
     displayBook()
+}
+
+const Book = class {
+    constructor(title, author, pages, read, colour) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+        this.colour = colour
+        this.isWhiteText = false
+        this.id = crypto.randomUUID()
+    }
+
+    toggleRead() {
+        this.read = !this.read
+    }
 }
 
 function determineBookColour(colour) {
@@ -103,7 +104,6 @@ function displayBook() {
         libraryGrid.appendChild(bookCard)
     }
     updatePlaceholderText()
-    console.log("clearing form")
     let form = document.querySelector("form")
     form.reset()
 }
